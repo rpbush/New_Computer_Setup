@@ -84,4 +84,84 @@ properties:
         id: Microsoft.PowerToys
         source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: OpenWhisperSystems.Signal
+      directives:
+        description: Install Signal
+        allowPrerelease: true
+      settings:
+        id: OpenWhisperSystems.Signal
+        source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Valve.Steam
+      directives:
+        description: Install Steam
+        allowPrerelease: true
+      settings:
+        id: Valve.Steam
+        source: winget
+
+
+  
+   
+
+
+
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: 7zip.7zip
+      directives:
+        description: Install 7zip.7zip
+        allowPrerelease: true
+      settings:
+        id: 7zip.7zip
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Notepad++.Notepad++
+      directives:
+        description: Install Notepad++.Notepad++
+        allowPrerelease: true
+      settings:
+        id: Notepad++.Notepad++
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Canonical.Ubuntu.2204
+      directives:
+        description: Install Canonical.Ubuntu.2204
+        allowPrerelease: true
+      settings:
+        id: Canonical.Ubuntu.2204
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Google.GoogleDrive
+      directives:
+        description: Install Google.GoogleDrive
+        allowPrerelease: true
+      settings:
+        id: Google.GoogleDrive
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Garmin.Express
+      directives:
+        description: Install Garmin.Express
+        allowPrerelease: true
+      settings:
+        id: Garmin.Express
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: UbiquitiInc.IdentityDesktop
+      directives:
+        description: Install UbiquitiInc.IdentityDesktop
+        allowPrerelease: true
+      settings:
+        id: UbiquitiInc.IdentityDesktop
+        source: winget
+
+
+   
