@@ -15,7 +15,7 @@ Most everything in the dsc.yml should work.
 1. Open Windows PowerShell
 2. set execution policy
 3. Copy boot.ps1 to your user folder
-4. run `.boot.ps1`
+4. run `.\boot.ps1`
 5. reset execution policy
 
 ## TO-DO list
