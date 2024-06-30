@@ -84,20 +84,4 @@ properties:
         id: Microsoft.PowerToys
         source: winget
 
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: AgileBits.1Password
-      directives:
-        description: Install AgileBits.1Password
-        allowPrerelease: true
-      settings:
-        id: AgileBits.1Password
-        source: winget
 
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Logitech.OptionsPlus
-      directives:
-        description: Install Logitech.OptionsPlus
-        allowPrerelease: true
-      settings:
-        id: Logitech.OptionsPlus
-        source: winget
