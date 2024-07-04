@@ -109,12 +109,12 @@ properties:
 
     # Install Remote Desktop
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: Microsoft.RemoteDesktopClient
+      id: 9WZDNCRFJ3PS
       directives:
         description: Install Remote Desktop
         allowPrerelease: true
       settings:
-        id: Microsoft.RemoteDesktopClient
+        id: 9WZDNCRFJ3PS
         source: winget
 
     # Install 7zip
