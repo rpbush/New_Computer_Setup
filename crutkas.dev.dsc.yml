@@ -115,7 +115,7 @@ properties:
         allowPrerelease: true
       settings:
         id: 9WZDNCRFJ3PS
-        source: winget
+        source: msstore
 
     # Install 7zip
     - resource: Microsoft.WinGet.DSC/WinGetPackage
