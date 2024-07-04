@@ -102,6 +102,14 @@ properties:
         id: Valve.Steam
         source: winget
 
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Microsoft.RemoteDesktopClient
+      directives:
+        description: Install Remote Desktop
+        allowPrerelease: true
+      settings:
+        id: Microsoft.RemoteDesktopClient
+        source: winget
 
   
    
