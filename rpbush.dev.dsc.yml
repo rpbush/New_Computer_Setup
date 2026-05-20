@@ -5,6 +5,7 @@ properties:
   resources:
  
 # Creates a new Dev Drive volume with Drive letter 'Z' and label 'Dev Drive 1' onto disk 0
+# DriveLetter is also referenced by $devDriveLetter in boot.ps1 — keep them in sync.
     - resource: Disk
       id: DevDrive1
       directives:
@@ -17,6 +18,10 @@ properties:
         DriveLetter: 'Z'
         FSLabel: 'Dev Drive'
         DevDrive: true
+        # AllowDestructive lets StorageDsc repartition Disk 0 to make room. The Test method
+        # short-circuits if Z: already matches the spec, so safe re-runs are fine — but if you
+        # change any setting above (size, format, drive letter), the next run WILL repartition
+        # and may destroy data. Treat boot.ps1 as a first-run tool.
         AllowDestructive: true
         FSFormat: 'ReFS'
         Size: '75Gb'
@@ -34,7 +39,7 @@ properties:
     # will use the DSC here to get Visual Studio and other items.
     - resource: GitDsc/GitClone
       directives:
-        description: Clone the winget-cli repository
+        description: Clone the PowerToys repository
         allowPrerelease: true
       settings:
         HttpsUrl: https://github.com/microsoft/powertoys.git
