@@ -8,12 +8,15 @@ $mainFunction =
 
     $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-    $dscUri = "https://raw.githubusercontent.com/crutkas/setup/main/"
-    $dscGenSoftware = "crutkas.generalSoftware.dsc.yml";
-    $dscWinSettings = "crutkas.winSettings.dsc.yml";
-    $dscDev = "crutkas.dev.dsc.yml";
-    $dscOffice = "crutkas.office.dsc.yml";
-    $dscPowerToysEnterprise = "Z:\source\powertoys\.configurations\configuration.vsEnterprise.dsc.yaml";
+    # Dev Drive letter. Must match the DriveLetter in rpbush.dev.dsc.yml — change both or PowerToys path below will break.
+    $devDriveLetter = 'Z'
+
+    $dscUri = "https://raw.githubusercontent.com/rpbush/New_Computer_Setup/main/"
+    $dscGenSoftware = "rpbush.generalSoftware.dsc.yml";
+    $dscWinSettings = "rpbush.winSettings.dsc.yml";
+    $dscDev = "rpbush.dev.dsc.yml";
+    $dscOffice = "rpbush.office.dsc.yml";
+    $dscPowerToysEnterprise = "${devDriveLetter}:\source\powertoys\.configurations\configuration.vsEnterprise.dsc.yaml";
 
     $dscOfficeUri = $dscUri + $dscOffice;
     $dscGenSoftwareUri = $dscUri + $dscGenSoftware 
@@ -47,6 +50,11 @@ $mainFunction =
 
         Write-Host "Done: Dev flows install"
         # ending dev workload
+
+        # Windows settings + Store/Windows Update. Last so any pending-reboot lands after installs.
+        Write-Host "Start: Windows settings & updates"
+        winget configuration -f $dscWinSettingsUri
+        Write-Host "Done: Windows settings & updates"
     }
 }
 
@@ -67,7 +75,7 @@ function GetLatestWinGet
        for ($i = 0; $i -lt $uris.Length; $i++) {
            $filePath = $paths[$i]
            $fileUri = $uris[$i]
-           Write-Host "Downloading: ($filePat) from $fileUri"
+           Write-Host "Downloading: ($filePath) from $fileUri"
            Invoke-WebRequest -Uri $fileUri -OutFile $filePath
        }
 

@@ -1,6 +1,8 @@
-# crutkas WinGet Configure list
+# rpbush WinGet Configure list
 
-This is my winget configure script to set up a new computer.  Still work in progress.  There will need to be a hybrid of Needing admin to run.  
+This is my winget configure script to set up a new computer.  Still work in progress.  There will need to be a hybrid of Needing admin to run.
+
+Based on [crutkas/setup](https://github.com/crutkas/setup) — forked and heavily modified for my own workflow.
 
 Last validation run: 2024.07.18
 

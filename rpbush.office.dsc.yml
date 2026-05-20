@@ -8,16 +8,17 @@ properties:
         - Microsoft.Office
       id: Office.AutoLoginRegKeySettings
       directives:
-        description: Configure My App
+        description: Set Outlook default profile to OutlookAuto and enable ZeroConfigExchange
         allowPrerelease: true
       settings:
         GetScript: |
-          # Your custom PowerShell code to check app configuration
+          $val = (Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Outlook' -Name 'DefaultProfile' -ErrorAction SilentlyContinue).DefaultProfile
+          return @{ Result = $val }
         TestScript: |
-          return $false
+          $val = (Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Outlook' -Name 'DefaultProfile' -ErrorAction SilentlyContinue).DefaultProfile
+          return ($val -eq 'OutlookAuto')
         SetScript: |
-          # PowerShell script commands to install VSCode extensions
-          Write-Host "Start: Office install"
+          Write-Host "Start: Outlook auto-login reg keys"
           New-Item -Path 'HKCU:\Software\Microsoft\Office\16.0\Outlook\' -Force
           New-ItemProperty -Path 'HKCU:\Software\Microsoft\Office\16.0\Outlook\' -Name 'DefaultProfile' -Value "OutlookAuto" -PropertyType String -Force
 
